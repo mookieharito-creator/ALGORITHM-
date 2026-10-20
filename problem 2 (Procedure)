@@ -1,0 +1,24 @@
+Algorithme CheckOrthogonalityProcedure
+Variables
+    v1, v2 : Tableau de Réels (taille n)
+    ps : Réel
+    n, p, i, j : Entier
+Début
+    Afficher "Donner le nombre de paires p et la dimension n :"
+    Lire(p)
+    Lire(n)
+    
+    Pour i de 1 à p faire
+        Afficher "Saisie des vecteurs pour la paire numéro ", i
+        // (عملية قراءة عناصر v1 و v2 هنا)
+        
+        // استدعاء الإجراء (تمرير ps بالمرجع بواسطة var)
+        dot_product(v1, v2, n, ps)
+        
+        Si ps = 0 alors
+            Afficher "La paire ", i, " est orthogonale."
+        Sinon
+            Afficher "La paire ", i, " n'est pas orthogonale."
+        FinSi
+    FinPour
+Fin
