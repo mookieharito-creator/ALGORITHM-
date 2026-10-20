@@ -1,24 +1,31 @@
-Algorithme CheckOrthogonalityProcedure
-Variables
-    v1, v2 : Tableau de Réels (taille n)
-    ps : Réel
-    n, p, i, j : Entier
-Début
-    Afficher "Donner le nombre de paires p et la dimension n :"
-    Lire(p)
-    Lire(n)
-    
-    Pour i de 1 à p faire
-        Afficher "Saisie des vecteurs pour la paire numéro ", i
-        // (عملية قراءة عناصر v1 و v2 هنا)
-        
-        // استدعاء الإجراء (تمرير ps بالمرجع بواسطة var)
-        dot_product(v1, v2, n, ps)
-        
-        Si ps = 0 alors
-            Afficher "La paire ", i, " est orthogonale."
-        Sinon
-            Afficher "La paire ", i, " n'est pas orthogonale."
-        FinSi
-    FinPour
-Fin
+FUNCTION dot_product_func(v1, v2 : ARRAY_OF FLOAT) : FLOAT
+VAR
+    i : INTEGER;
+    ps : FLOAT;
+BEGIN
+    ps := 0;
+    FOR i FROM 0 TO v1.length - 1 DO
+        ps := ps + (v1[i] * v2[i]);
+    END_FOR
+    RETURN ps;
+END_FUNCTION
+
+
+ALGORITHM CheckOrthogonalityFunction
+VAR
+    v1, v2 : ARRAY_OF FLOAT[3];
+    n_pairs, i : INTEGER;
+BEGIN
+    Write("Enter number of pairs: ");
+    Read(n_pairs);
+
+    FOR i FROM 1 TO n_pairs DO
+        // Read v1 and v2 elements here
+
+        IF (dot_product_func(v1, v2) = 0) THEN
+            Write("Vectors are Orthogonal");
+        ELSE
+            Write("Vectors are NOT Orthogonal");
+        END_IF
+    END_FOR
+END_ALGORITHM
