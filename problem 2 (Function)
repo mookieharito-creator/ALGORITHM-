@@ -1,0 +1,36 @@
+// تعريف الدالة
+Fonction dot_product_func(v1 : Tableau de Réels, v2 : Tableau de Réels, n : Entier) : Réel
+Variables
+    i : Entier
+    ps : Réel
+Début
+    ps <- 0
+    Pour i de 0 à n - 1 faire
+        ps <- ps + (v1[i] * v2[i])
+    FinPour
+    Retourner ps
+FinFonction
+
+
+// الخوارزمية الرئيسية التي تستخدم الدالة
+Algorithme CheckOrthogonalityFunction
+Variables
+    v1, v2 : Tableau de Réels (taille n)
+    n, p, i : Entier
+Début
+    Afficher "Donner le nombre de paires p et la dimension n :"
+    Lire(p)
+    Lire(n)
+    
+    Pour i de 1 à p faire
+        Afficher "Saisie des vecteurs pour la paire numéro ", i
+        // (عملية قراءة عناصر v1 و v2 هنا)
+        
+        // استدعاء الدالة مباشرة داخل الشرط
+        Si dot_product_func(v1, v2, n) = 0 alors
+            Afficher "La paire ", i, " est orthogonale."
+        Sinon
+            Afficher "La paire ", i, " n'est pas orthogonale."
+        FinSi
+    FinPour
+Fin
